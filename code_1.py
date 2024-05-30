@@ -4,13 +4,14 @@
 import pyautogui as auto
 import keyboard as key
 from tkinter import *
+from tkinter import ttk
 
 def start_autoclicker():
     start_key = start_key_entry.get()
     stop_key = stop_key_entry.get()
     pause_key = pause_key_entry.get()
     always_key = always_key_entry.get()
-    button_name = button_name_entry.get()
+    button_name = button_name_combo.get()
     
     def click1():
         while True:
@@ -41,11 +42,11 @@ root.title('Автокликер')
 root.geometry("400x400")
 root.iconbitmap('212.ico')
 
-Label(root, text="выберите клавишу запуска:").pack()
+Label(root, text="клавиша чтобы зажать и кликало:").pack()
 start_key_entry = Entry(root)
 start_key_entry.pack()
 
-Label(root, text="выберите клавишу остановки:").pack()
+Label(root, text="клавиша стоп:").pack()
 stop_key_entry = Entry(root)
 stop_key_entry.pack()
 
@@ -53,14 +54,16 @@ Label(root, text="клавиша для установки паузы:").pack()
 pause_key_entry = Entry(root)
 pause_key_entry.pack()
 
-Label(root, text="клавиша для клика постояного (то есть если уйти он будет кликать):").pack()
+Label(root, text="при нажатии 1 раз будет кликать до паузы или остановки:").pack()
 always_key_entry = Entry(root)
 always_key_entry.pack()
 
 Label(root, text="какая клавиша мыши кликать будет надо написать (right / left):").pack()
-button_name_entry = Entry(root)
-button_name_entry.pack()
+button_name_combo = ttk.Combobox(root, values=["right", "left"])
+button_name_combo.set("выберите клавишу")
+button_name_combo.pack()
 
 Button(root, text="Запуск", command=start_autoclicker).pack()
 
 root.mainloop()
+
