@@ -39,7 +39,7 @@ def start_autoclicker():
 
 root = Tk()
 root.title('Автокликер')
-root.geometry("400x400")
+root.geometry("400x300")
 root.iconbitmap('212.ico')
 
 Label(root, text="клавиша чтобы зажать и кликало:").pack()
